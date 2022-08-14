@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-restricted-globals */
-importScripts("./utils.js");
+importScripts("./scripts/utils.js");
 
 addEventListener('install', event => {
     event.waitUntil(addToCache());

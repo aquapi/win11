@@ -1,8 +1,8 @@
-function register(script = "index") {
+function register() {
     if ('serviceWorker' in navigator)
         window.addEventListener('load', async () => {
             try {
-                const reg = await navigator.serviceWorker.register("sw/" + script + '.js', {
+                const reg = await navigator.serviceWorker.register("sw.js", {
                     scope: "/"
                 });
 
