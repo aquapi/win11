@@ -7,7 +7,7 @@ function App() {
 	const [bottomStyle, setBottomStyle] = useState();
 
 	// Hide the start menu
-	useEffect(onClick);
+	useEffect(onClick, [bottomStyle, clicked]);
 
 	// On click event
 	function onClick() {
