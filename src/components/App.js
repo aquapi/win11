@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
 	const [clicked, setClicked] = useState(false);
 
 	// Refers to the old bottom style value
 	const [bottomStyle, setBottomStyle] = useState();
+
+	// Hide the start menu
+	useEffect(onClick);
 
 	// On click event
 	function onClick() {
