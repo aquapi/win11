@@ -1,13 +1,23 @@
-const displayTop = "calc((93.6458vh - 646.429px) / 2)";
+import { useState } from "react";
 
 function App() {
-	function onClick() {
-		const element = document.getElementById("start");
+	const [clicked, setClicked] = useState(false);
 
-		if (displayTop === element.style.top)
-			element.style.top = "100vh";
+	// Refers to the old bottom style value
+	const [bottomStyle, setBottomStyle] = useState();
+
+	// On click event
+	function onClick() {
+		const startMenu = document.getElementById("start");
+		if (!bottomStyle || bottomStyle === "-100vh")
+			setBottomStyle(startMenu.style.bottom);
+
+		if (!clicked)
+			startMenu.style.bottom = "-100vh";
 		else
-			element.style.top = displayTop;
+			startMenu.style.bottom = bottomStyle;
+
+		setClicked(!clicked);
 	}
 
 	return <>
