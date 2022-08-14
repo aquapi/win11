@@ -1,0 +1,63 @@
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	width: 100vw;
+	height: 100vh;
+	max-width: 100vw;
+	max-height: 100vh;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+
+	background-image: url("../assets/background.png");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	overflow-y: hidden;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
+
+$taskbar-height: calc(58 * 100vw / 1920);
+
+/* 1920 x 61 */
+#taskbar {
+	background-image: url("../assets/taskbar.png");
+	background-size: cover;
+	background-position: top;
+
+	width: 100vw;
+	height: $taskbar-height;
+}
+
+$start-height: calc(905px / 1.4);
+$start-width: calc(798px / 1.4);
+
+/* 798 x 905 */
+#start {
+	position: absolute;
+
+	top: 100vh;
+	left: calc((100vw - $start-width) / 2);
+
+	width: $start-width;
+	height: $start-height;
+
+	background-image: url("../assets/start.png");
+	background-size: cover;
+
+	transition: top 0.5s;
+
+	border-radius: 6px;
+
+	z-index: -1;
+}
