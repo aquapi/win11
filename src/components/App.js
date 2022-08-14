@@ -7,7 +7,8 @@ function App() {
 	const [bottomStyle, setBottomStyle] = useState();
 
 	// Hide the start menu
-	useEffect(onClick, [bottomStyle, clicked]);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	useEffect(onClick, []);
 
 	// On click event
 	function onClick() {
