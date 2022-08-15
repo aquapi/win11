@@ -1,5 +1,5 @@
 function register() {
-    if ('serviceWorker' in navigator)
+    if (process.env.NODE_ENV === "production" && 'serviceWorker' in navigator)
         window.addEventListener('load', async () => {
             try {
                 const reg = await navigator.serviceWorker.register("sw.js", {

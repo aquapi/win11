@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
+import open from "../utils/redirect";
 
 function App() {
-	const [clicked, setClicked] = useState(false);
-
-	// Refers to the old bottom style value
+	// Vottom style value
 	const [bottomStyle, setBottomStyle] = useState();
 
 	// Hide the start menu
@@ -12,21 +11,19 @@ function App() {
 
 	// On click event
 	function onClick() {
-		const startMenu = document.getElementById("start");
-		if (!bottomStyle || bottomStyle === "-100vh")
-			setBottomStyle(startMenu.style.bottom);
-
-		if (!clicked)
-			startMenu.style.bottom = "-100vh";
-		else
-			startMenu.style.bottom = bottomStyle;
-
-		setClicked(!clicked);
+		if (bottomStyle !== "-100vh")
+			setBottomStyle("-100vh");
+		else 
+			setBottomStyle(undefined);
 	}
 
 	return <>
-		<div id="taskbar" onClick={onClick}></div>
-		<div id="start"></div>
+		<div id="taskbar">
+			<button onClick={onClick}></button>
+			<button onClick={open("https://bing.com")}></button>
+			<button onClick={open("https://example.com", "_blank")}></button>
+		</div>
+		<div id="start" style={{ bottom: bottomStyle }}></div>
 	</>;
 }
 
